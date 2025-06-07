@@ -39,13 +39,9 @@ const Index = () => {
         </motion.div>
         
         <div className="max-w-4xl relative z-10">
-          <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left">
+          <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left uppercase">
             <span className="text-gray-200">
-              <TextGenerateEffect words="Trade crypto with" />
-            </span>
-            <br />
-            <span className="text-white font-medium">
-              <TextGenerateEffect words="confidence & security" />
+              <TextGenerateEffect words="WX SOFTWARE — VOCÊ IMAGINA, NÓS CRIAMOS A SOLUÇÃO PARA O SEU NEGÓCIO, NO FORMATO E ESTILO DA SUA EMPRESA." />
             </span>
           </h1>
           
