@@ -50,17 +50,37 @@ const LanguageSelector = () => {
   }, []);
 
   const translatePage = (language: string) => {
+    console.log('Tentando traduzir para:', language);
+    
     if (window.google && window.google.translate) {
-      const translateElement = window.google.translate.TranslateElement;
-      if (translateElement) {
-        // Encontrar o elemento select do Google Translate
+      // Aguardar um pouco para garantir que o Google Translate está pronto
+      setTimeout(() => {
         const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+        console.log('Elemento select encontrado:', selectElement);
+        
         if (selectElement) {
           selectElement.value = language;
-          selectElement.dispatchEvent(new Event('change'));
+          selectElement.dispatchEvent(new Event('change', { bubbles: true }));
           setCurrentLanguage(language);
+          console.log('Idioma alterado para:', language);
+        } else {
+          console.log('Elemento select não encontrado, tentando novamente...');
+          // Se não encontrou, tentar novamente após um pequeno delay
+          setTimeout(() => {
+            const selectElement2 = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+            if (selectElement2) {
+              selectElement2.value = language;
+              selectElement2.dispatchEvent(new Event('change', { bubbles: true }));
+              setCurrentLanguage(language);
+              console.log('Idioma alterado para (segunda tentativa):', language);
+            }
+          }, 500);
         }
-      }
+      }, 100);
+    } else {
+      console.log('Google Translate não está carregado ainda');
+      // Se o Google Translate ainda não estiver carregado, aguardar e tentar novamente
+      setTimeout(() => translatePage(language), 1000);
     }
   };
 
