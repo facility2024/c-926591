@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from "react";
 import { Command, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import LanguageSelector from "./LanguageSelector";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -77,6 +79,7 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
+            <LanguageSelector />
             <Button 
               onClick={() => scrollToSection('cta')}
               size="sm"
@@ -87,7 +90,8 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSelector />
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="glass">
