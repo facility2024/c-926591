@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowRight, Command } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -39,9 +40,15 @@ const Index = () => {
         </motion.div>
         
         <div className="max-w-4xl relative z-10">
-          <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left uppercase">
+          <h1 className="text-3xl md:text-5xl font-normal mb-4 tracking-tight text-left uppercase">
             <span className="text-gray-200">
-              <TextGenerateEffect words="WX SOFTWARE — VOCÊ IMAGINA, NÓS CRIAMOS A SOLUÇÃO PARA O SEU NEGÓCIO, NO FORMATO E ESTILO DA SUA EMPRESA." />
+              WX SOFTWARE — VOCÊ IMAGINA, NÓS CRIAMOS A SOLUÇÃO{" "}
+            </span>
+            <span className="text-primary">
+              PARA O SEU NEGÓCIO, NO FORMATO E{" "}
+            </span>
+            <span className="text-gray-200">
+              ESTILO DA SUA EMPRESA.
             </span>
           </h1>
           
